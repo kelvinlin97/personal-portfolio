@@ -152,3 +152,9 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
+
+.site-title-img {
+	width: 100px; /* Adjust width as needed */
+	height: 100px; /* Maintain aspect ratio */
+	max-height: 200px; /* Optional: to limit height */
+  }
