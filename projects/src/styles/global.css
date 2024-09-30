@@ -33,14 +33,14 @@
 }
 
 body {
-	background-color: white; /* Background image */
+	background-color: #18191A;; /* Background image */
     background-repeat: no-repeat;
     background-size: cover; /* Ensure the background covers the entire area */
     height: 100%;
     margin: 0;
     padding: 0;
     text-align: left;
-    color: #f7f3f3; /* Text color */
+    color: white; /* Text color */
     font-family: 'Comic Neue', cursive, sans-serif; /* Fallback font */
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -63,7 +63,7 @@ h4,
 h5,
 h6 {
     margin: 0 0 0.5rem 0;
-    color: rgb(var(--black));
+    color: white;
     line-height: 1.2;
 }
 
