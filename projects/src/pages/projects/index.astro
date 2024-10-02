@@ -3,109 +3,57 @@ import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
-
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: white;
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.slug}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <title>Projects</title>
+    <style>
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 2rem;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+      }
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .project {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+      }
+      p {
+        font-size: 1.25rem;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>My Projects</h1>
+      <div class="project">
+        <img src="/projects/project_1.png" alt="Project Image" />
+        <p>DOM Visualizer was created using JavaScript for developers to view the DOM created by their browser for any HTML input. DOM Visualizer creates and displays the hierarchical relationship between different HTML tags.</p>
+      </div>
+      <div class="project">
+        <img src="/projects/project_2.png" alt="Project Image" />
+        <p>Teamfight Tactics Board Visualizer created using public data from Riot Game's open api. The application calculates the total defensive and offensive stats of champions and give recommendations on which champions/items to purchase along with a visualization of your team's offense and defense which can be adjusted over the length of the round. Our prototype only includes data for 1 star champions.</p>
+      </div>
+    </main>
+    <Footer />
+  </body>
 </html>

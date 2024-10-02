@@ -1,0 +1,34 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <script>
+      window.location.href = "https://drive.google.com/file/d/1yIwhr2orRLIut57gl94MMZqo7KDAJouC/view?usp=sharing";
+    </script>
+    <title>Redirecting...</title>
+    <style>
+      main {
+        width: 960px;
+      }
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <Footer />
+  </body>
+</html>

@@ -27,18 +27,17 @@ import { SITE_TITLE, SITE_DESCRIPTION } from './../consts';
 
       .parallax-container {
         display: flex;
-        width: 300vw; /* Total width for 3 full-screen sections */
-        height: 100vh; /* Full height for parallax */
-        transition: transform 1s ease; /* Smooth transition when clicking */
-        cursor: pointer;
+        width: 700vw; 
+        height: 100vh; 
+        transition: transform 1s ease; 
       }
 
       .parallax-image {
         position: relative;
-        width: 100vw; /* Full width */
-        height: 100vh; /* Full height */
+        width: 100vw; 
+        height: 100vh; 
         background-position: center;
-        background-size: cover; /* Maintain aspect ratio */
+        background-size: cover; 
       }
 
       .image4 {
@@ -52,7 +51,22 @@ import { SITE_TITLE, SITE_DESCRIPTION } from './../consts';
       .image6 {
         background-image: url('/assets/image6.png');
       }
-      
+
+      .image7 {
+        background-image: url('/assets/image7.png');
+      }
+
+      .image8 {
+        background-image: url('/assets/image8.png');
+      }
+
+      .image9 {
+        background-image: url('/assets/image9.png');
+      }
+
+      .image10 {
+        background-image: url('/assets/image10.png');
+      }
 
       .content {
         display: flex;
@@ -60,15 +74,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from './../consts';
         align-items: center;
         font-size: 2rem;
         color: white;
-        position: absolute; /* Absolute positioning for overlay */
+        position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-      }
-
-      .parallax-image {
-        height: 100vh;
-		width: 100vh;
       }
     </style>
   </head>
@@ -79,31 +88,37 @@ import { SITE_TITLE, SITE_DESCRIPTION } from './../consts';
       <div class="parallax-image image4"></div>
       <div class="parallax-image image5"></div>
       <div class="parallax-image image6"></div>
+      <div class="parallax-image image7"></div>
+      <div class="parallax-image image8"></div>
+      <div class="parallax-image image9"></div>
+      <div class="parallax-image image10"></div>
     </div>
 
     <script>
       const handleParallax = () => {
         let currentPosition = 0;
-        const totalSections = 3; // Number of parallax sections
+        const totalSections = 7; // Number of parallax sections
         const parallaxContainer = document.getElementById('parallaxContainer');
 
-        // Function to move the parallax effect left-to-right
-        function moveParallax() {
-          currentPosition = (currentPosition + 1) % totalSections;
+        function moveParallax(event) {
+          const screenWidth = window.innerWidth;
+          const clickX = event.clientX;
+
+          if (clickX < screenWidth / 2) {
+            currentPosition = currentPosition > 0 ? currentPosition - 1 : totalSections - 1;
+          } else {
+            currentPosition = (currentPosition + 1) % totalSections;
+          }
+
           if (parallaxContainer) {
             parallaxContainer.style.transform = `translateX(-${currentPosition * 100}vw)`;
           }
         }
 
-        // Attach the event listener to the parallax container
-        if (parallaxContainer) {
-          parallaxContainer.addEventListener('click', moveParallax);
-        } else {
-          console.error('Parallax container not found');
-        }
+        window.addEventListener('click', moveParallax);
       };
 
-      handleParallax(); // Call the function to set up the event listener
+      handleParallax(); 
     </script>
   </body>
 </html>
