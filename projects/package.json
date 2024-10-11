@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@astrojs/mdx": "^3.1.6",
@@ -16,5 +17,8 @@
     "@iconify/iconify": "^3.1.1",
     "astro": "^4.15.6",
     "astro-icon": "^1.1.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.2.0"
   }
 }
